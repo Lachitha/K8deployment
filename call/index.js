@@ -8,6 +8,6 @@ app.get("/", (req, res) => {
 
 app.listen(port, () => {
 	console.log(
-		`recieve service listening at https://adc5f6da7caf045febc3a1a4bf130c97-1272833628.ap-southeast-1.elb.amazonaws.com:${port}`
+		`recieve service listening at http://adc5f6da7caf045febc3a1a4bf130c97-1272833628.ap-southeast-1.elb.amazonaws.com:${port}`
 	);
 });

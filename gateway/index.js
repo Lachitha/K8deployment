@@ -7,7 +7,7 @@ app.use(
 	"/chat",
 	createProxyMiddleware({
 		target:
-			"https://adc5f6da7caf045febc3a1a4bf130c97-1272833628.ap-southeast-1.elb.amazonaws.com:3001",
+			"http://adc5f6da7caf045febc3a1a4bf130c97-1272833628.ap-southeast-1.elb.amazonaws.com:3001",
 		pathRewrite: { "^/chat": "" },
 	})
 );
@@ -15,13 +15,13 @@ app.use(
 	"/recieve",
 	createProxyMiddleware({
 		target:
-			"https://adc5f6da7caf045febc3a1a4bf130c97-1272833628.ap-southeast-1.elb.amazonaws.com:3002",
+			"http://adc5f6da7caf045febc3a1a4bf130c97-1272833628.ap-southeast-1.elb.amazonaws.com:3002",
 		pathRewrite: { "^/recieve": "" },
 	})
 );
 
 app.listen(port, () => {
 	console.log(
-		`api gateway listening at https://adc5f6da7caf045febc3a1a4bf130c97-1272833628.ap-southeast-1.elb.amazonaws.com:${port}`
+		`api gateway listening at http://adc5f6da7caf045febc3a1a4bf130c97-1272833628.ap-southeast-1.elb.amazonaws.com:${port}`
 	);
 });
