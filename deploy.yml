@@ -14,10 +14,10 @@ spec:
         app: recieve-service
     spec:
       containers:
-      - name: recieve-service
-        image: lachisenarath576259/recieve-app
-        ports:
-        - containerPort: 3002
+        - name: recieve-service
+          image: lachisenarath576259/recieve-app
+          ports:
+            - containerPort: 3002
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -35,10 +35,10 @@ spec:
         app: call-service
     spec:
       containers:
-      - name: call-service
-        image: lachisenarath576259/chat-app
-        ports:
-        - containerPort: 3001
+        - name: call-service
+          image: lachisenarath576259/chat-app
+          ports:
+            - containerPort: 3001
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -56,10 +56,10 @@ spec:
         app: api-gateway
     spec:
       containers:
-      - name: api-gateway
-        image: lachisenarath576259/gateway
-        ports:
-        - containerPort: 3000
+        - name: api-gateway
+          image: lachisenarath576259/gateway
+          ports:
+            - containerPort: 3000
 ---
 apiVersion: v1
 kind: Service
@@ -67,13 +67,11 @@ metadata:
   name: recieve-service
   namespace: webapps
 spec:
-selector:
-    app: api-gateway
+  selector:
+    app: recieve-service
   ports:
     - port: 80
       targetPort: 3002
-  selector:
-    app: recieve-service
 ---
 apiVersion: v1
 kind: Service
@@ -81,13 +79,11 @@ metadata:
   name: call-service
   namespace: webapps
 spec:
-selector:
-    app: api-gateway
+  selector:
+    app: call-service
   ports:
     - port: 80
       targetPort: 3001
-  selector:
-    app: call-service
 ---
 apiVersion: v1
 kind: Service
@@ -95,11 +91,9 @@ metadata:
   name: api-gateway
   namespace: webapps
 spec:
-selector:
+  selector:
     app: api-gateway
   type: LoadBalancer
   ports:
     - port: 80
       targetPort: 3000
-  selector:
-    app: api-gateway
