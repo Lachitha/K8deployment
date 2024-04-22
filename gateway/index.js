@@ -3,6 +3,9 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 const app = express();
 const port = 3000;
 
+app.get("/", (req, res) => {
+	res.send("Hello World gateway!");
+});
 app.use(
 	"/chat",
 	createProxyMiddleware({
