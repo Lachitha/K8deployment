@@ -67,6 +67,7 @@ metadata:
   name: recieve-service
   namespace: webapps
 spec:
+type:loadBalancer
   ports:
     - port: 80
       targetPort: 3002
