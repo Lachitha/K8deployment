@@ -31,7 +31,7 @@ spec:
   ports:
     - name: http
       targetPort: 3001
-      port: 3001
+      port: 80
 
 ---
 apiVersion: apps/v1
@@ -67,7 +67,7 @@ spec:
   ports:
     - name: http
       targetPort: 3002
-      port: 3002
+      port: 80
 
 ---
 apiVersion: apps/v1
@@ -104,4 +104,4 @@ spec:
   ports:
     - name: http
       targetPort: 3000
-      port: 3000
+      port: 80
