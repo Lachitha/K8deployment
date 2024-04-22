@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webapps-ingress
+  namespace: webapps
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: clientService
+      http:
+        paths:
+          - path: /recieve-service
+            pathType: Prefix
+            backend:
+              service:
+                name: recieve-service
+                port:
+                  number: 80
+          - path: /call-service
+            pathType: Prefix
+            backend:
+              service:
+                name: call-service
+                port:
+                  number: 80
+          - path: /api-gateway
+            pathType: Prefix
+            backend:
+              service:
+                name: api-gateway
+                port:
+                  number: 80
